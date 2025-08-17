@@ -23,168 +23,170 @@ class _PaymentMethodState extends State<PaymentMethod> {
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              'cash',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey[300]!),
-                borderRadius: BorderRadius.circular(8),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Cash',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
-              child: Row(
-                children: [
-                  SizedBox(width: 12),
-                  Expanded(
-                    child: Text(
-                      'Cash Payment',
-                      style: TextStyle(fontSize: 16, color: Colors.black87),
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.all(5),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey[300]!),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Row(
+                  children: [
+                    SizedBox(width: 5),
+                    Expanded(
+                      child: Text(
+                        'Cash Payment',
+                        style: TextStyle(fontSize: 16, color: Colors.black87),
+                      ),
                     ),
-                  ),
-                  Radio<String>(
-                    value: 'cash',
-                    groupValue: selectedPaymentMethod,
-                    onChanged: (String? newValue) {
-                      setState(() {
-                        selectedPaymentMethod = newValue!;
-                      });
-                    },
-                    activeColor: Colors.green,
-                  ),
-                ],
+                    Radio<String>(
+                      value: 'cash',
+                      groupValue: selectedPaymentMethod,
+                      onChanged: (String? newValue) {
+                        setState(() {
+                          selectedPaymentMethod = newValue!;
+                        });
+                      },
+                      activeColor: Colors.green,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 10),
-
-            Text(
-              'Pay Using Apps',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            SizedBox(height: 10),
-            Container(
-              padding: EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey[300]!),
-                borderRadius: BorderRadius.circular(8),
+              SizedBox(height: 10),
+        
+              Text(
+                'Pay Using Apps',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Image.asset(
-                        "lib/assets/arrows/forward-arrow.png",
-                        height: 25,
-                        width: 25,
-                      ),
-                      SizedBox(width: 15),
-                      Text('You will be redirected to your UPI app'),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      _buildPaymentMethods(
-                        'lib/assets/payment_icons/phonepe.png',
-                        "PhonePe",
-                      ),
-                      SizedBox(width: 10),
-                      _buildPaymentMethods(
-                        'lib/assets/payment_icons/gpay.png',
-                        "Google Pay",
-                      ),
-                      SizedBox(width: 10),
-                      _buildPaymentMethods(
-                        'lib/assets/payment_icons/paytm.png',
-                        "PayTM",
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Image.asset(
-                        "lib/assets/upi.png",
-                        height: 25,
-                        width: 25,
-                      ),
-                      SizedBox(width: 15),
-                      Expanded(child: Text('Pay with other UPI apps')),
-                      Radio<String>(
-                        value: 'other_upi',
-                        groupValue: selectedPaymentMethod,
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            selectedPaymentMethod = newValue!;
-                          });
-                        },
-                        activeColor: Colors.green,
-                      ),
-                    ],
-                  ),
-                ],
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey[300]!),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset(
+                          "lib/assets/arrows/forward-arrow.png",
+                          height: 25,
+                          width: 25,
+                        ),
+                        SizedBox(width: 15),
+                        Text('You will be redirected to your UPI app'),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      children: [
+                        _buildPaymentMethods(
+                          'lib/assets/payment_icons/phonepe.png',
+                          "PhonePe",
+                        ),
+                        SizedBox(width: 10),
+                        _buildPaymentMethods(
+                          'lib/assets/payment_icons/gpay.png',
+                          "Google Pay",
+                        ),
+                        SizedBox(width: 10),
+                        _buildPaymentMethods(
+                          'lib/assets/payment_icons/paytm.png',
+                          "PayTM",
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Image.asset(
+                          "lib/assets/upi.png",
+                          height: 25,
+                          width: 25,
+                        ),
+                        SizedBox(width: 15),
+                        Expanded(child: Text('Pay with other UPI apps')),
+                        Radio<String>(
+                          value: 'other_upi',
+                          groupValue: selectedPaymentMethod,
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              selectedPaymentMethod = newValue!;
+                            });
+                          },
+                          activeColor: Colors.green,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-
-            Text(
-              'Paywith UPI ID/ Mobile Number',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
-            SizedBox(height: 20),
-            Container(
-              padding: EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey[300]!),
-                borderRadius: BorderRadius.circular(8),
+              SizedBox(height: 20),
+        
+              Text(
+                'Paywith UPI ID/ Mobile Number',
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
               ),
-              child: Column(
-                children: [
-                  Row(
-                    children: [
-                      Image.asset(
-                        "lib/assets/arrows/backward-arrow.png",
-                        height: 25,
-                        width: 25,
-                      ),
-                      SizedBox(width: 15),
-                      Text(
-                        'You will receive a payment request on your UPI app',
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 20),
-                  Row(
-                    children: [
-                      Image.asset(
-                        "lib/assets/upi.png",
-                        height: 25,
-                        width: 25,
-                      ),
-                      SizedBox(width: 15),
-                      Expanded(child: Text('UPI ID/ Mobile Number')),
-                      Radio<String>(
-                        value: 'upi_id',
-                        groupValue: selectedPaymentMethod,
-                        onChanged: (String? newValue) {
-                          setState(() {
-                            selectedPaymentMethod = newValue!;
-                          });
-                        },
-                        activeColor: Colors.green,
-                      ),
-                    ],
-                  ),
-                ],
+              SizedBox(height: 20),
+              Container(
+                padding: EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.grey[300]!),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        Image.asset(
+                          "lib/assets/arrows/backward-arrow.png",
+                          height: 25,
+                          width: 25,
+                        ),
+                        SizedBox(width: 15),
+                        Text(
+                          'You will receive a payment request on your \n UPI app',
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Image.asset(
+                          "lib/assets/upi.png",
+                          height: 25,
+                          width: 25,
+                        ),
+                        SizedBox(width: 15),
+                        Expanded(child: Text('UPI ID/ Mobile Number')),
+                        Radio<String>(
+                          value: 'upi_id',
+                          groupValue: selectedPaymentMethod,
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              selectedPaymentMethod = newValue!;
+                            });
+                          },
+                          activeColor: Colors.green,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: SafeArea(
@@ -248,7 +250,7 @@ class _PaymentMethodState extends State<PaymentMethod> {
 
               SizedBox(
                 width: double.infinity,
-                height: 56,
+                height: 42,
                 child: ElevatedButton(
                   onPressed: selectedPaymentMethod.isNotEmpty ? () {} : null,
                   style: ElevatedButton.styleFrom(
