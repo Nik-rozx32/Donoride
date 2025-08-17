@@ -61,6 +61,7 @@ flutter:
   assets:
     - lib/assets/arrows/
     - lib/assets/payment_icons/
+    - lib/assets/
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
