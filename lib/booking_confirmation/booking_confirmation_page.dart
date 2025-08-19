@@ -148,7 +148,7 @@ class BookingConfirmationPage extends StatelessWidget {
 
                       SizedBox(height: 12),
                       Text(
-                        "The fare shown is an approximate amount and includes GST.\n\n"
+                        "The fare shown is an approximate amount and includes GST.\n"
                         "Final fare may vary depending on tolls, route changes, destination "
                         "modifications, or other factors.\n"
                         "Additional charges may apply for pickup or drop-off outside city limits.",
